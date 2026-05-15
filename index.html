@@ -17,11 +17,17 @@
         }
 
         [data-theme="dark"] {
+            --anim-light: #eeeeee;
+            --anim-lighter: #f1dfdf;
             --bg:   #1e0303;
             --text: #ffffff;
         }
 
         [data-theme="light"] {
+            --anim-light: #333333;
+            --anim-lighter: #666666;
+            --red-mid:  #a01818;
+            --red-soft: #7a0f0f;
             --bg:   #ffe8e6;
             --text: #111111;
         }
@@ -72,8 +78,8 @@
             animation: stroke 6s infinite linear;
         }
         .anim-text:nth-child(5n+1) { stroke: var(--red);      animation-delay: -2.2s; }
-        .anim-text:nth-child(5n+2) { stroke: #eeeeee;         animation-delay: -1.4s; }
-        .anim-text:nth-child(5n+3) { stroke: #f1dfdf;         animation-delay: -2.6s; }
+        .anim-text:nth-child(5n+2) { stroke: var(--anim-light, #eeeeee);         animation-delay: -1.4s; }
+        .anim-text:nth-child(5n+3) { stroke: var(--anim-lighter, #f1dfdf);         animation-delay: -2.6s; }
         .anim-text:nth-child(5n+4) { stroke: var(--red-mid);  animation-delay: -3.8s; }
         .anim-text:nth-child(5n+5) { stroke: var(--red-soft); animation-delay: -5.0s; }
 
