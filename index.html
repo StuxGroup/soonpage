@@ -1,167 +1,235 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
     <title>Stux.Group</title>
     <meta name="description" content="We are currently redoing our website!">
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://media.stux.group/global/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-
-        body {
-            margin: 0;
-            background-color: #111;
-            overflow: hidden;
+        :root {
+            --red:      #D11010;
+            --red-mid:  #d95656;
+            --red-soft: #bf3a3a;
         }
-        .text {
+
+        [data-theme="dark"] {
+            --bg:   #1e0303;
+            --text: #ffffff;
+        }
+
+        [data-theme="light"] {
+            --bg:   #ffe8e6;
+            --text: #111111;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg);
+            font-family: 'Barlow', sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        /* ── Wrapper ── */
+        .section {
+            position: relative;
+            height: 100%;
+            text-align: center;
+        }
+
+        /* ── Logo ── */
+        .logo {
+            width: 65%;
+            max-width: 620px;
+            height: auto;
+            padding-top: 6%;
+        }
+
+        /* ── Animated background text ── */
+        .bg-svg {
+            position: absolute;
+            margin: auto;
+            left: 0; right: 0; top: 0; bottom: 0;
+            padding: 10%;
+            pointer-events: none;
+        }
+
+        .anim-text {
             fill: none;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Barlow', sans-serif;
+            font-weight: 300;
             stroke-width: 1;
             stroke-dasharray: 50 230;
             stroke-dashoffset: 4;
-            -webkit-animation: stroke 6s infinite linear;
             animation: stroke 6s infinite linear;
         }
+        .anim-text:nth-child(5n+1) { stroke: var(--red);      animation-delay: -2.2s; }
+        .anim-text:nth-child(5n+2) { stroke: #eeeeee;         animation-delay: -1.4s; }
+        .anim-text:nth-child(5n+3) { stroke: #f1dfdf;         animation-delay: -2.6s; }
+        .anim-text:nth-child(5n+4) { stroke: var(--red-mid);  animation-delay: -3.8s; }
+        .anim-text:nth-child(5n+5) { stroke: var(--red-soft); animation-delay: -5.0s; }
 
-        .text:nth-child(5n+1) {
-            stroke: rgb(209 16 16);
-            -webkit-animation-delay: -2.2s;
-            animation-delay: -2.2s;
-        }
-        .text:nth-child(5n+2) {
-            stroke: #eeeeee;
-            -webkit-animation-delay: -1.4s;
-            animation-delay: -1.4s;
-        }
-        .text:nth-child(5n+3) {
-            stroke: #f1dfdf;
-            -webkit-animation-delay: -2.6s;
-            animation-delay: -2.6s;
-        }
-        .text:nth-child(5n+4) {
-            stroke: #d95656;
-            -webkit-animation-delay: -3.8s;
-            animation-delay: -3.8s;
-        }
-        .text:nth-child(5n+5) {
-            stroke: #bf3a3a;
-            -webkit-animation-delay: -5s;
-            animation-delay: -5s;
-        }
-
-        @-webkit-keyframes stroke {
-            100% {
-                stroke-dashoffset: -300;
-            }
-        }
         @keyframes stroke {
-            100% {
-                stroke-dashoffset: -300;
-            }
-        }
-        div {
-            text-align: center;
-        }
-        img {
-            height: auto;
-            padding: 5%;
-            width: 50%;
-            max-width: 600px;
+            100% { stroke-dashoffset: -300; }
         }
 
-        svg {
+        /* ── Global links ── */
+        a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ── Message (pinned to bottom) ── */
+        .message {
             position: absolute;
-            margin: auto;
-            left: 0; 
-            right:0;
-            top:0;
-            bottom:0;
-            padding: 10%;
+            left: 0; right: 0;
+            bottom: 70px;
+            margin: 0 auto;
+            padding: 0 5%;
+            color: var(--text);
+            font-size: clamp(14px, 2.2vw, 22px);
+            font-weight: 700;
+            line-height: 1.7;
+            letter-spacing: 0.03em;
+            transition: color 0.3s;
         }
 
-        p {
-            position: absolute; 
-            margin: auto;
-            padding: 5%;
+        .message a {
+            color: var(--red);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .message a:hover { border-bottom-color: var(--red); }
+
+        /* ── Theme toggle ── */
+        #theme-toggle {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            z-index: 100;
+            background: rgba(209, 16, 16, 0.12);
+            border: 1px solid rgba(209, 16, 16, 0.35);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 17px;
+            line-height: 38px;
             text-align: center;
-            bottom: 10px;
-            font-weight: bold;
-            left: 0;
-            right:0;
-            font-family: 'Raleway', sans-serif;
-            font-size: 30px;
-            color: #fff;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s;
+            color: var(--text);
         }
+        #theme-toggle:hover { background: rgba(209, 16, 16, 0.22); }
 
-        a, a:hover, a:focus {
-            color: rgb(209 16 16);
-        }
-
-        /*    sm btn styles    */
-        .bluesky-btn {
-            position: absolute; margin: auto;
-            bottom: 0;
+        /* ── Social links ── */
+        .bluesky-link {
+            position: fixed;
+            bottom: 0; left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
             background-color: #0f73ff;
             border: 0.15em solid #0f73ff;
             border-left: none;
             border-bottom: none;
-            border-radius: 0% 100% 0% 0% / 0% 100% 0% 93% ;
-            height: 50px;
-            width: 50px;
-            cursor: pointer;
+            border-radius: 0% 100% 0% 0% / 0% 100% 0% 93%;
+            color: #fff;
+            font-size: 1.4em;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            z-index: 10;
+            padding-right: 6px;
+            padding-top: 6px;
         }
-        .linkedin-btn {
-            position: absolute; margin: auto;
+        .bluesky-link:hover { background-color: #0a55c4; }
+
+        .linkedin-link {
+            position: fixed;
             bottom: 0; right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background-color: #0072b1;
             border: 0.15em solid #0072b1;
             border-right: none;
             border-bottom: none;
-            border-radius: 100% 0% 0% 0% / 100% 0% 0% 0% ;
-            background-color: #0072b1;
-            height: 50px;
-            width: 50px;
-            cursor: pointer;
-        }
-        .fa-bluesky {
-            position: absolute;
-            left: 0em; right: .4em; top: .5em; bottom: 0;
+            border-radius: 100% 0% 0% 0% / 100% 0% 0% 0%;
             color: #fff;
-            font-size: 1.8em;
+            font-size: 1.4em;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            z-index: 10;
+            padding-left: 6px;
+            padding-top: 6px;
         }
-        .fa-linkedin-in {
-            position: absolute;
-            left: .4em; right: 0em; top: .55em; bottom: 0;
-            color: #fff;
-            font-size: 1.8em;
-        }
-        .linkedin-btn:hover {
-            background-color: #111;
-        }
-        .bluesky-btn:hover {
-            background-color: #111;
-        }
+        .linkedin-link:hover { background-color: #005580; }
     </style>
-</head>    
+</head>
 <body>
+
     <div class="section">
-        <img src="https://media.stux.group/global/logo.png">
-        <svg viewBox="0 0 105 50">
+
+        <!-- Logo -->
+        <a href="https://stux.group"><img class="logo" src="https://media.stux.group/global/logo.png" alt="Stux.Group Logo" title="Stux.Group Logo"></a>
+
+        <!-- Animated background -->
+        <svg class="bg-svg" viewBox="0 0 105 50">
             <symbol id="page-text">
                 <text text-anchor="middle" x="50%" y="50%" dy=".4em">{Coming Soon}</text>
             </symbol>
-            <use class="text" xlink:href="#page-text"></use>
-            <use class="text" xlink:href="#page-text"></use>
-            <use class="text" xlink:href="#page-text"></use>
-            <use class="text" xlink:href="#page-text"></use>
-            <use class="text" xlink:href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
         </svg>
-        <p>We are currently redoing our website!</br>Please come back later or check our <a href="https://bsky.app/profile/stux.group">Bluesky</a> for updates</p>
+
+        <!-- Message -->
+        <p class="message">
+            We are currently redoing our website!<br>
+            Please come back later or check our <a href="https://bsky.app/profile/stux.group">Bluesky</a> for updates
+        </p>
+
     </div>
 
-    <!-- sm btns -->
-    <a href="https://bsky.app/profile/stux.group"><button class="bluesky-btn"><i class="fab fa-bluesky"></i></button></a>
-    <a href="https://www.linkedin.com/company/stuxgroup"><button class="linkedin-btn"><i class="fab fa-linkedin-in"></i></button></a>
+    <!-- Theme toggle -->
+    <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9728;</button>
+
+    <!-- Social links -->
+    <a class="bluesky-link" href="https://bsky.app/profile/stux.group" aria-label="Bluesky">
+        <i class="fab fa-bluesky"></i>
+    </a>
+    <a class="linkedin-link" href="https://www.linkedin.com/company/stuxgroup" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <script>
+        var btn = document.getElementById('theme-toggle');
+        var html = document.documentElement;
+        var saved = localStorage.getItem('sg-theme') || 'dark';
+        html.setAttribute('data-theme', saved);
+        btn.textContent = saved === 'dark' ? '\u2600' : '\u263E';
+        btn.addEventListener('click', function() {
+            var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            btn.textContent = next === 'dark' ? '\u2600' : '\u263E';
+            localStorage.setItem('sg-theme', next);
+        });
+    </script>
 </body>
 </html>
-
-
