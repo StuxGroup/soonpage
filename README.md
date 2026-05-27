@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://media.stux.group/global/logo.png" width="200" alt="Stux.Group Logo">
+  <img src="https://media.stux.group/global/logo.png" height="100" alt="Stux.Group Logo">
 </p>
 
 # Soonpage
@@ -46,3 +46,5 @@ This project is open source and available for use and modification.
 ---
 
 Made by [Stux.Group](https://github.com/StuxGroup)
+
+*Stux.Group is the parent of the Stux.Group Brand of Companies, including [Stux.Cloud](https://github.com/StuxCloud) and [Stuxedo](https://github.com/Stuxedo).*
