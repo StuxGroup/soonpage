@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://media.stux.group/global/logo.png" width="200" alt="StuxGroup Logo">
+  <img src="https://media.stux.group/global/logo.png" width="200" alt="Stux.Group Logo">
 </p>
 
 # Soonpage
 
-A clean and simple "coming soon" landing page template for StuxGroup projects.
+A clean and simple "coming soon" landing page template for Stux.Group projects.
 
 ## Overview
 
@@ -45,4 +45,4 @@ This project is open source and available for use and modification.
 
 ---
 
-Made by [StuxGroup](https://github.com/StuxGroup)
+Made by [Stux.Group](https://github.com/StuxGroup)
