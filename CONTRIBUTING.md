@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://global.media.stux.group/global/logo.png" height="80" alt="Stux.Group Logo">
+  <img src="https://global.media.stux.group/logo.png" height="80" alt="Stux.Group Logo">
 </p>
 
 # Contributing to Soonpage
