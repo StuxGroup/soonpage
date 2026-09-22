@@ -2,6 +2,12 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.3.4
+
+### Fixed
+
+- CI's markdownlint step was failing: MD024 (no-duplicate-heading) doesn't understand the Keep-a-Changelog pattern of repeating `### Fixed`/`### Added`/`### Changed` under every version entry, and `VERSION.md` was missing its trailing newline (MD047). Added `.markdownlint.json` with `MD024.siblings_only: true`, and disabled MD013/MD033/MD041, which conflict with this org's established doc style (centered `<img>` logo headers, long changelog lines).
+
 ## v1.3.3
 
 ### Fixed
