@@ -2,6 +2,12 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.3.1
+
+### Changed
+
+- Copy now mentions services alongside the website, since Stux.Group represents both
+
 ## v1.3.0
 
 ### Changed
