@@ -2,6 +2,15 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.2.1
+
+### Fixed
+
+- Legal pages (`privacy`, `opt-out`, `disclaimer`) and `CONTRIBUTING.md`
+  still described Barlow and Font Awesome as loaded from Google Fonts /
+  Cloudflare's cdnjs &mdash; updated to reflect that both are now
+  self-hosted under `assets/`
+
 ## v1.2.0
 
 ### Added

@@ -16,8 +16,10 @@ a static site with no build step. Then open `http://127.0.0.1:8000`.
 
 ## Project conventions
 
-- **Plain static HTML.** No framework, no build step, no dependencies beyond
-  Google Fonts and Font Awesome (loaded from their CDNs).
+- **Plain static HTML.** No framework, no build step. Barlow and Font Awesome
+  are self-hosted under `assets/` (not loaded from a CDN) — if you bump the
+  Font Awesome version or add font weights, update `assets/` and re-check
+  which files each page actually references.
 - Deployed via GitHub Pages to [soonpage.stux.group](https://soonpage.stux.group)
   (see `CNAME`) — pushing to `main` deploys automatically.
 - `MaintenancePage` is a sister repo based on this one's design — if you
