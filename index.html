@@ -245,7 +245,7 @@
     </a>
 
     <!-- Legal -->
-    <p class="legal-link"><a href="changelog.html">v1.2.1</a> &middot; <a href="legal.html">Boring Legal Stuff</a></p>
+    <p class="legal-link"><a href="changelog.html" id="version-link">Changelog</a> &middot; <a href="legal.html">Boring Legal Stuff</a></p>
 
     <script>
         var btn = document.getElementById('theme-toggle');
@@ -268,6 +268,14 @@
                 parentOrigin
             );
         }
+    </script>
+    <script>
+        fetch('VERSION.md')
+            .then(function (r) { return r.text(); })
+            .then(function (v) {
+                document.getElementById('version-link').textContent = 'v' + v.trim();
+            })
+            .catch(function () {});
     </script>
 </body>
 </html>

@@ -2,6 +2,13 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.2.2
+
+### Changed
+
+- The footer's version link now fetches `VERSION.md` at runtime and fills in
+  its own text, instead of being hand-typed on every release
+
 ## v1.2.1
 
 ### Fixed
