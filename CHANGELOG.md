@@ -2,6 +2,12 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.3.3
+
+### Fixed
+
+- Local checkout folder renamed from `SoonPage` to `soonpage` to match the repo name's actual casing; a stale `MaintenancePage` reference in CONTRIBUTING.md corrected to `maintenancepage`
+
 ## v1.3.2
 
 ### Changed
