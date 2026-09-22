@@ -2,6 +2,17 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.3.0
+
+### Changed
+
+- Internal links no longer include `.html` (GitHub Pages resolves extensionless URLs natively)
+- Legal-page `<title>` tags now say "Legal" for the category, keeping "Boring Legal Stuff" as the visible `<h1>` heading only
+
+### Added
+
+- A custom `404.html` error page
+
 ## v1.2.2
 
 ### Changed
