@@ -2,6 +2,15 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.1.0
+
+### Added
+
+- Cross-origin `postMessage` title sync, so a page embedding this one in an
+  iframe from any domain can mirror this page's `<title>`
+- `changelog.html`, with a version number linked to it next to "Boring Legal
+  Stuff" in the footer
+
 ## v1.0.1
 
 ### Fixed
