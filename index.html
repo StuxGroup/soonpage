@@ -261,5 +261,14 @@
             localStorage.setItem('sg-theme', next);
         });
     </script>
+    <script>
+        if (window.parent !== window && document.referrer) {
+            var parentOrigin = document.referrer ? new URL(document.referrer).origin : "*";
+            window.parent.postMessage(
+                { type: "page-title", title: document.title },
+                parentOrigin
+            );
+        }
+    </script>
 </body>
 </html>
