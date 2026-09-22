@@ -2,6 +2,18 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.2.0
+
+### Added
+
+- Self-hosted Barlow font files and Font Awesome (brands) assets under
+  `assets/`, replacing the Google Fonts / cdnjs CDN links on every page
+
+### Changed
+
+- `changelog.html` now fetches and renders `CHANGELOG.md` at runtime instead
+  of duplicating its content by hand, so the two can't drift out of sync
+
 ## v1.1.0
 
 ### Added
