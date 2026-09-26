@@ -2,6 +2,13 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.3.7
+
+### Changed
+- `changelog.html` now sorts each release's `###` sections into a fixed order — Added, Changed, Fixed, Removed, Security, Deprecated — at render time, rather than trusting the order `CHANGELOG.md` lists them in; unknown section types go last
+- Changelog type badges now use the fixed family palette — Added `#2ecc71`, Changed `#3ba7ff`, Fixed `#ffa64d`, Removed `#ff4d4d`, Security `#b06bff`, Deprecated `#8a8a94` — as tinted badges (coloured text on a light tint of the same hue), with darker variants of each for the light theme
+- CHANGELOG sections reordered to Added, Changed, Fixed, Removed, Security, Deprecated
+
 ## v1.3.6
 
 ### Fixed
@@ -39,14 +46,14 @@ All notable changes to Soonpage are documented here.
 
 ## v1.3.0
 
+### Added
+
+- A custom `404.html` error page
+
 ### Changed
 
 - Internal links no longer include `.html` (GitHub Pages resolves extensionless URLs natively)
 - Legal-page `<title>` tags now say "Legal" for the category, keeping "Boring Legal Stuff" as the visible `<h1>` heading only
-
-### Added
-
-- A custom `404.html` error page
 
 ## v1.2.2
 
