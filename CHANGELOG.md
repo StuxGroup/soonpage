@@ -2,6 +2,12 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.4.2
+
+### Changed
+
+- The footer's copyright year is worked out automatically: the start year alone in the first year, then START–CURRENT
+
 ## v1.4.1
 
 ### Fixed
