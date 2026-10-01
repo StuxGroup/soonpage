@@ -2,6 +2,12 @@
 
 All notable changes to Soonpage are documented here.
 
+## v1.4.1
+
+### Fixed
+
+- The footer's Created-with icons are optically sized, so the heart no longer looks bigger than the code and coffee icons
+
 ## v1.4.0
 
 ### Added
