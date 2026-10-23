@@ -4,16 +4,20 @@
 Run from anywhere: python scripts/build-sitemap.py
 The page list is PAGES below; each page's <lastmod> is the date of the last git commit that
 touched its source file (left out if the file has no history yet). URLs always use BASE_URL,
-the site's production address.
+the site's production address. It then runs build-discord-embeds.py, so every page's Discord
+preview (the sitemap page's included) matches the PAGES list.
 
 Copyright (c) Stux.Group. All Rights Reserved.
 """
 import html
+import importlib.util
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.dont_write_bytecode = True  # importing build-discord-embeds.py must not leave a __pycache__ in the site
 BASE_URL = "https://" + (ROOT / "CNAME").read_text(encoding="utf-8").strip()
 
 # (path, source file, label, description, priority, changefreq)
@@ -65,6 +69,8 @@ def build_html(title: str) -> str:
     head_end = legal.index("<main")
     main_end = legal.index("</main>") + len("</main>")
     shell_head, shell_foot = legal[:head_end], legal[main_end:]
+    # The legal page's Discord preview isn't the sitemap's: drop it, build-discord-embeds.py writes the right one.
+    shell_head = re.sub(r"[ \t]*<!-- Discord: [^\n]*-->\n[ \t]*(?:<script id=\"discord:component-embed\"[^\n]*</script>|<!-- discord:component-embed [^\n]*-->)\n", "", shell_head)
 
     def up(m: "re.Match") -> str:
         # The sitemap lives one folder down, so relative links in the shared shell need "../".
@@ -116,6 +122,11 @@ def main() -> None:
         text = text.rstrip("\n") + "\n\n" + line + "\n"
     robots.write_text(text, encoding="utf-8", newline="\n")
     print(f"Wrote sitemap.xml, sitemap/index.html and robots.txt for {BASE_URL} ({len(PAGES)} pages)")
+    # Every page's Discord preview, including the sitemap page just written (imported here, as it imports this file).
+    spec = importlib.util.spec_from_file_location("build_discord_embeds", Path(__file__).resolve().parent / "build-discord-embeds.py")
+    embeds = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(embeds)
+    embeds.main([])
 
 
 if __name__ == "__main__":

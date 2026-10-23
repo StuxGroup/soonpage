@@ -41,6 +41,14 @@ Edit the HTML files to:
 
 This project uses GitHub Pages and is automatically deployed to [soonpage.stux.group](http://soonpage.stux.group/).
 
+## Versioning
+
+Soonpage uses [Date Versioning](https://datevers.ing): each release is numbered by its UTC release date as `YY.MM.DD` (for example `26.10.23`), with `-1`, `-2`… added for later releases the same day. The current version is in `VERSION.md`, and every release is listed in [`CHANGELOG.md`](CHANGELOG.md) (also shown at [/changelog](https://soonpage.stux.group/changelog)). Releases up to v1.4.4 used Semantic Versioning.
+
+## Tests
+
+Run `bash tests/run.sh` (Python 3.8+, no dependencies; Node.js for the changelog page's checks). See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 This project is open source and available for use and modification.
