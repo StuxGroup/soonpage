@@ -2,7 +2,7 @@
   <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.group/logo-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.group/logo-dark.png"><img src="https://global.media.stux.group/logo-dark.png" height="100" alt="Stux.Group Logo"></picture>
 </p>
 
-# Soonpage
+# Stux.Group Soonpage
 
 A clean and simple "coming soon" landing page template for Stux.Group projects.
 
@@ -16,7 +16,9 @@ This repository contains a lightweight HTML landing page designed to announce up
 - ⚡ Lightweight and fast-loading
 - 🎨 Ready to customize
 - 📱 Responsive design
-- 🚀 Deployed at [soonpage.stux.group](http://soonpage.stux.group/)
+- 🚀 Deployed at [soonpage.stux.group](https://soonpage.stux.group)
+- 📜 A **Boring Legal Stuff** hub at `/legal` with its six pages, a `/changelog` page, a sitemap and a Discord link preview
+- 🏷️ Optional site banners (dev mode, coming soon, maintenance)
 
 ## Getting Started
 
@@ -49,16 +51,16 @@ Soonpage uses [Date Versioning](https://datevers.ing): each release is numbered 
 
 Run `bash tests/run.sh` (Python 3.8+, no dependencies; Node.js for the changelog page's checks). See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Local preview
+
+Run `./dev-server.sh` (or `dev-server.bat`, add a port as the last argument) to serve the site at `http://127.0.0.1:8000` the way GitHub Pages does, with the dev-mode banner on. Add `--no-dev-mode` to see it exactly as production does, or `?banner=soon,maintenance,site` to preview the other banner types. It uses PHP 7.4's built-in server (set `PHP_BIN` to pick another PHP).
+
 ## License
 
-This project is open source and available for use and modification.
+Copyright © Stux.Group. All rights reserved. See [LICENSE.md](LICENSE.md).
 
 ---
 
 Made by [Stux.Group](https://github.com/StuxGroup)
 
 *Stux.Group is the parent of the <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.group/icon-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.group/icon-dark.png"><img src="https://global.media.stux.group/icon-dark.png" height="14" alt="Stux.Group" valign="middle"></picture> Stux.Group Brand of Companies.*
-
-## Local preview
-
-Run `./dev-server.sh` (or `dev-server.bat`, add a port as the last argument) to serve the site at `http://127.0.0.1:8000` the way GitHub Pages does, with the dev-mode banner on. Add `--no-dev-mode` to see it exactly as production does, or `?banner=soon,maintenance,site` to preview the other banner types. It uses PHP 7.4's built-in server (set `PHP_BIN` to pick another PHP).
