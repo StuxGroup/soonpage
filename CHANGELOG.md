@@ -4,6 +4,17 @@ All notable changes to Soonpage are documented here. Since v26.10.23 this projec
 [Date Versioning](https://datevers.ing) (`YY.MM.DD`, the UTC release date, with `-1`, `-2`… for
 later releases the same day); earlier releases used Semantic Versioning.
 
+## v26.11.06
+
+### Added
+
+- A `test` branch: work goes there and reaches `main` only through a reviewed pull request, and merging is what deploys the site. CI now runs on `test` too
+
+### Fixed
+
+- **Short, wide windows:** the logo, the `{Coming Soon}` heading, the message and the footer no longer crowd into or overlap each other in short, wide windows (around 2:1, such as 1600x800). They now stack in one column with gaps that can't collapse, the logo and heading are sized by the window's height as well as its width, and a window too short for everything scrolls instead of overlapping
+- CI's HTML check passes again: an `.htmlvalidate.json` allows the `:` in the Discord preview's `discord:component-embed` id, as on Servicepage
+
 ## v26.10.26
 
 ### Security

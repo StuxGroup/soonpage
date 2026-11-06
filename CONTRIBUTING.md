@@ -36,6 +36,12 @@ a static site with no build step. Then open `http://127.0.0.1:8000`.
 
 Run `bash tests/run.sh` before every release. It's plain Python `unittest` (3.8+, no dependencies) and checks the version, the changelog page's parser (run under Node.js, skipped if it isn't installed), every Discord preview and the icon set. CI runs it on every push.
 
+## Branches
+
+- Work on `test`, or on a feature branch off it. Never push to `main`
+- Changes reach `main` only through a pull request from `test` into `main`, which needs CI to pass and is reviewed and merged by Leo
+- Merging into `main` deploys the site to GitHub Pages; release commits and tags are made on `test` (`git push origin test --tags`) and go live when the pull request is merged
+
 ## Versioning and changelog
 
 - Soonpage uses [Date Versioning](https://datevers.ing): the version is the UTC release date as `YY.MM.DD`, with `-1`, `-2`… for later releases the same UTC day (check `git tag` for that date first). Use `date -u +%y.%m.%d`, never local time — just after midnight in the UK it's still yesterday in UTC — and never a future date. Up to v1.4.4 it used Semantic Versioning
